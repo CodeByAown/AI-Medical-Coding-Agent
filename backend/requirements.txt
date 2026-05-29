@@ -1,0 +1,82 @@
+# ─── Core API Framework ─────────────────────────────────────────────────────
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+httpx==0.28.1
+
+# ─── Data Validation & Settings ─────────────────────────────────────────────
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-dotenv==1.0.1
+
+# ─── Database ───────────────────────────────────────────────────────────────
+sqlalchemy==2.0.36
+aiosqlite==0.20.0
+alembic==1.14.0
+
+# ─── Database — PostgreSQL support (SQLite still works as fallback) ──────────
+asyncpg==0.30.0
+psycopg2-binary==2.9.10
+
+# ─── Clinical NLP ────────────────────────────────────────────────────────────
+spacy>=3.8.7
+# scispaCy (optional, requires Python <3.13 — install manually if on 3.11/3.12):
+# scispacy==0.5.5
+# en_core_sci_lg: pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_lg-0.5.4.tar.gz
+# negspacy (optional — negation detection):
+# negspacy==1.0.4  ← install separately: pip install negspacy
+# Fallback model (auto-installed):
+# en_core_web_sm: python -m spacy download en_core_web_sm
+
+# ─── LLM & AI ────────────────────────────────────────────────────────────────
+anthropic==0.42.0
+ollama==0.4.5
+openai>=1.12.0
+
+# ─── RAG & Vector Store ──────────────────────────────────────────────────────
+chromadb==0.6.3
+sentence-transformers==3.3.1
+
+# ─── Document Processing & OCR ───────────────────────────────────────────────
+pymupdf==1.25.1
+pytesseract==0.3.13
+Pillow==11.1.0
+python-docx==1.1.2
+pdfplumber==0.11.4
+
+# ─── Data Processing ─────────────────────────────────────────────────────────
+pandas==2.2.3
+numpy==2.2.1
+requests==2.32.3
+aiohttp==3.11.11
+aiofiles==24.1.0
+
+# ─── Auth & Security ─────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+cryptography==44.0.0
+pydantic[email]>=2.10.4
+
+# ─── Caching & Queue (foundation — not yet active) ───────────────────────────
+redis==5.2.1
+celery==5.4.0
+
+# ─── Rate Limiting ───────────────────────────────────────────────────────────
+slowapi==0.1.9
+
+# ─── Performance Monitoring ──────────────────────────────────────────────────
+psutil==6.1.0
+
+# ─── Structured Logging ──────────────────────────────────────────────────────
+structlog==24.4.0
+
+# ─── Utilities ───────────────────────────────────────────────────────────────
+tenacity==9.0.0
+rich==13.9.4
+tqdm==4.67.1
+
+# ─── Testing ─────────────────────────────────────────────────────────────────
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+httpx==0.28.1

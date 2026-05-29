@@ -1,0 +1,77 @@
+version: '3.9'
+
+services:
+  # ─── AI Medical Coder API ─────────────────────────────────────────────────
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: medcoder-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/medical_coder.db
+      - CHROMA_PERSIST_DIR=./knowledge_base/indices
+      - LOG_LEVEL=INFO
+    env_file:
+      - ./backend/.env
+    volumes:
+      - medcoder_data:/app/data
+      - medcoder_kb:/app/knowledge_base/indices
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+
+  # ─── Redis (caching + task queue foundation) ──────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: medcoder-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - redis_data:/data
+
+  # ─── Ollama Local LLM Server (optional) ───────────────────────────────────
+  ollama:
+    image: ollama/ollama:latest
+    container_name: medcoder-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    # Uncomment for GPU support:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  medcoder_data:
+  medcoder_kb:
+  redis_data:
+  ollama_models:
+    name: ai_medical_coder_ollama_models

@@ -1,0 +1,58 @@
+[
+  {
+    "code": "A0425",
+    "description": "Ground mileage, per statute mile"
+  },
+  {
+    "code": "A4253",
+    "description": "Blood glucose test strips for home blood glucose monitor, per 50 strips"
+  },
+  {
+    "code": "E0601",
+    "description": "Continuous airway pressure (CPAP) device"
+  },
+  {
+    "code": "E1390",
+    "description": "Oxygen concentrator, single delivery port, capable of delivering 85 percent or greater oxygen concentration at the prescribed flow rate"
+  },
+  {
+    "code": "J0696",
+    "description": "Injection, ceftriaxone sodium, per 250 mg"
+  },
+  {
+    "code": "J2788",
+    "description": "Injection, rho D immune globulin, intravenous, human, solvent detergent, 100 IU"
+  },
+  {
+    "code": "L3000",
+    "description": "Foot insert, removable, molded to patient model, UCB type, Berkeley shell, each"
+  },
+  {
+    "code": "G0008",
+    "description": "Administration of influenza virus vaccine"
+  },
+  {
+    "code": "G0009",
+    "description": "Administration of pneumococcal vaccine"
+  },
+  {
+    "code": "G0283",
+    "description": "Electrical stimulation (unattended), to one or more areas for indication(s) other than wound care"
+  },
+  {
+    "code": "G2066",
+    "description": "Opioid treatment program, weekly bundle including drug testing, counseling, individual and group therapy, and toxicology testing"
+  },
+  {
+    "code": "T1000",
+    "description": "Private duty/independent nursing service(s), licensed, up to 15 minutes"
+  },
+  {
+    "code": "S9083",
+    "description": "Global fee urgent care centers"
+  },
+  {
+    "code": "Q2017",
+    "description": "Injection, teniposide, 50 mg"
+  }
+]

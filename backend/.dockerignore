@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+data/
+*.db
+*.sqlite
+.pytest_cache/
+tests/
+docs/
+*.log
+knowledge_base/indices/

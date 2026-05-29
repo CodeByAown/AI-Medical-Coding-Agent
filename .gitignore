@@ -1,0 +1,75 @@
+# ============================================================
+# Neural Hub — AI Medical Coding Agent
+# ============================================================
+
+# ─── Secrets — NEVER COMMIT ──────────────────────────────────
+backend/.env
+frontend/.env.local
+frontend/.env.production.local
+.env
+.env.local
+.env.production
+.env.staging
+.env.development.local
+
+# ─── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.pyo
+.Python
+
+# ─── Virtual Environment ─────────────────────────────────────
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+
+# ─── Database (SQLite — rebuilt on startup) ──────────────────
+backend/data/
+
+# ─── ChromaDB Vector Indices (too large; rebuilt on deploy) ──
+backend/knowledge_base/indices/
+
+# NOTE: knowledge_base/data/ IS committed — contains the source
+# ICD-10/CPT/HCPCS JSON files needed to rebuild indices on Railway.
+
+# ─── Logs ────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Node.js / Next.js ───────────────────────────────────────
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.vercel/
+
+# ─── OS Files ────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# ─── IDE ─────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ─── Testing ─────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
